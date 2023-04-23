@@ -6,12 +6,25 @@
 3. [http://127.0.0.1:1010/api/v1/](http://127.0.0.1:1010/api/v1/)
 ### Проверка HTTP-запросов:
 - **GET**  
-Спиоск всех продуктов ```curl localhost:1010/api/v1/products/```  
-Список всех складов ```curl localhost:1010/api/v1/stocks/```
+Получить список всех продуктов ```curl localhost:1010/api/v1/products/```  
+Получить список всех складов ```curl localhost:1010/api/v1/stocks/```
 
-[//]: # ()
-[//]: # (- **POST**  )
 
-[//]: # (Создание продукта ```curl -X POST localhost:1010/api/v1/products/ -H 'Content-Type: application/json' -d '{"title": "Баклажан", "description": "Лучшие помидоры на рынке"}'```  )
+- **POST**  
+Создать продукт ```curl -X POST localhost:1010/api/v1/products/ -H "Content-Type: application/json" -d '{"title": "Баклажан", "description": "Лучшие помидоры на рынке"}'```  
+Создать склад ```curl -X POST localhost:1010/api/v1/stocks/ -H "Content-Type: application/json" -d '{"address": "Сочи", "positions": [{"product": 2, "quantity": 250, "price": 120.50}, {"product": 3, "quantity": 100, "price": 180}]}'``` 
 
-[//]: # (Создание склада ```curl -X POST localhost:1010/api/v1/stocks/ -H 'Content-Type: application/json' -d '[{"product": 2, "quantity": 250, "price": 120.50}, {"product": 3, "quantity": 100, "price": 180}]'``` )
+
+- **DELETE**   
+Удалить продукт ```curl -X DELETE localhost:1010/api/v1/products/5/```  
+Удалить склад ```curl -X DELETE localhost:1010/api/v1/stocks/4/```
+
+
+- **PATCH**  
+Обновить продукт ```curl -X PATCH localhost:1010/api/v1/products/4/ -H "Content-Type: application/json" -d '{"description": "Лучшие дыни на рынке"}'```  
+Удалить склад ```curl -X PATCH localhost:1010/api/v1/stocks/3/ -H "Content-Type: application/json" -d '{"positions": [{"product": 2, "quantity": 100, "price": 130.80}, {"product": 3, "quantity": 243, "price": 145}]}'```
+
+
+- **Фильтры**   
+Поиск складов по ID продукта ```curl localhost:1010/api/v1/stocks/?products=2```  
+Поиск складов по названию продукта ```curl localhost:1010/api/v1/stocks/?search=Дын```
