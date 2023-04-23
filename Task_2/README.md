@@ -22,7 +22,7 @@
 
 - **PATCH**  
 Обновить продукт ```curl -X PATCH localhost:1010/api/v1/products/4/ -H "Content-Type: application/json" -d '{"description": "Лучшие дыни на рынке"}'```  
-Удалить склад ```curl -X PATCH localhost:1010/api/v1/stocks/3/ -H "Content-Type: application/json" -d '{"positions": [{"product": 2, "quantity": 100, "price": 130.80}, {"product": 3, "quantity": 243, "price": 145}]}'```
+Обновить склад ```curl -X PATCH localhost:1010/api/v1/stocks/3/ -H "Content-Type: application/json" -d '{"positions": [{"product": 2, "quantity": 100, "price": 130.80}, {"product": 3, "quantity": 243, "price": 145}]}'```
 
 
 - **Фильтры**   
